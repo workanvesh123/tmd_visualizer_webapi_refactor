@@ -3,7 +3,7 @@ import os
 from github import Github
 
 # Authenticate using the GitHub token
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+GITHUB_TOKEN = os.getenv("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")
 REPO_NAME = "workanvesh123/tmd_visualizer_webapi_refactor"  # Replace with your repository name
 github_client = Github(GITHUB_TOKEN)
 repo = github_client.get_repo(REPO_NAME)
