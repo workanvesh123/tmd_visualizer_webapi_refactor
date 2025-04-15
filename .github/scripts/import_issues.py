@@ -4,7 +4,7 @@ from github import Github
 
 # Authenticate using the GitHub token
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-REPO_NAME = "workanvesh123/my-repo"  # Replace with your repository name
+REPO_NAME = "workanvesh123/tmd_visualizer_webapi_refactor"  # Replace with your repository name
 github_client = Github(GITHUB_TOKEN)
 repo = github_client.get_repo(REPO_NAME)
 
