@@ -1,0 +1,30 @@
+name: Import Issues from CSV
+
+on:
+  workflow_dispatch:
+
+jobs:
+  import-issues:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      # Install dependencies
+      - name: Install dependencies
+        run: pip install PyGithub pandas
+
+      # Run the script to import issues from CSV
+      - name: Import Issues from CSV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python .github/scripts/import_issues.py
