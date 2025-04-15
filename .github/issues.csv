@@ -1,0 +1,26 @@
+Title,Body,Labels,Assignees
+Refactor PDNService to remove static state,Remove static fields like PDNPath and Stopwatch in PDNService and return values via DTO.,"phase-1,refactor,backend",work.anvesh@gmail.com
+Return structured DTO from ReadPDNDataAsync,"Ensure PDNService returns signals, faults, and other parsed data in a clean object.","phase-1,refactor",work.anvesh@gmail.com
+Add error handling inside PDN parsing,"Handle missing XML nodes, invalid formats, and return friendly errors.","phase-1,backend",work.anvesh@gmail.com
+Refactor all 9 converter classes to services,"Move converters into Services/Converters folder, each implementing a new IConverterService interface.","phase-2,refactor,converter",work.anvesh@gmail.com
+Replace file reads in converters with stream input,Update converter signatures to accept Stream or byte[] instead of file path.,"phase-2,refactor",work.anvesh@gmail.com
+Remove Helper class dependencies,Migrate logic from legacy Helper class into modular services.,"phase-2,refactor",work.anvesh@gmail.com
+Implement ParquetManager,Port logic from legacy app to write .parquet files using Parquet.Data.,"phase-3,backend,output",work.anvesh@gmail.com
+Implement CSVManager,Handle CSV writing using CsvHelper or standard StreamWriter.,"phase-3,backend,output",work.anvesh@gmail.com
+Implement DBManager as injectable service,Refactor MDB creation logic to a clean DI-based service for Access output.,"phase-3,database",work.anvesh@gmail.com
+Create POST /api/converter/convert endpoint,Allow file uploads and trigger conversion based on parameters.,"phase-4,api",work.anvesh@gmail.com
+Return file stream or JSON from conversion,Return converted output as file stream (for MDB/Parquet) or inline JSON.,"phase-4,api",work.anvesh@gmail.com
+Implement ExceptionMiddleware,Catch unhandled exceptions and return structured JSON error response.,"phase-5,error-handling",work.anvesh@gmail.com
+Replace Console.WriteLine with ILogger,Use ILogger<T> for structured logging across all services.,"phase-5,logging",work.anvesh@gmail.com
+Convert all service methods to async/await,"Use async I/O (File.ReadAllBytesAsync, etc.) in conversion services.","phase-6,async",work.anvesh@gmail.com
+Stream file input/output via IFormFile,Avoid loading entire file into memory during upload/response.,"phase-6,performance",work.anvesh@gmail.com
+Add unit tests for all converter services,Write NUnit tests with dummy data for each service.,"phase-7,testing",work.anvesh@gmail.com
+Add integration test for file upload endpoint,Simulate HTTP POST with test file and validate response.,"phase-7,testing,integration",work.anvesh@gmail.com
+Test error cases with invalid/malformed input,Ensure controller returns 400 or 500 appropriately.,"phase-7,testing",work.anvesh@gmail.com
+Store outputs temporarily and return download link,Save converted files to /converted or tmp and return URL.,"phase-8,output",work.anvesh@gmail.com
+Add cleanup policy for temp files,Periodically delete files older than X hours.,"phase-8,cleanup",work.anvesh@gmail.com
+Enable Swagger and XML comments,Document all endpoints using Swashbuckle and XML docs.,"phase-9,documentation",work.anvesh@gmail.com
+Dockerize the application,Create Dockerfile to containerize the Web API.,"phase-9,devops",work.anvesh@gmail.com
+Create production appsettings and logging config,Add appsettings.Production.json and configure logging levels.,"phase-9,configuration",work.anvesh@gmail.com
+Implement health check endpoint,Add /health for uptime checks and monitoring.,"phase-9,monitoring",work.anvesh@gmail.com
+Prepare staging deployment,Deploy to test environment and verify end-to-end flow.,"phase-9,deployment",work.anvesh@gmail.com
