@@ -8,6 +8,9 @@ REPO_NAME = "workanvesh123/tmd_visualizer_webapi_refactor"  # Replace with your 
 github_client = Github(GITHUB_TOKEN)
 repo = github_client.get_repo(REPO_NAME)
 
+if not GITHUB_TOKEN:
+    raise ValueError("Missing GH_PAT! Did you set it as a GitHub secret?")
+
 # Path to the CSV file
 CSV_FILE_PATH = ".github/issues.csv"
 
