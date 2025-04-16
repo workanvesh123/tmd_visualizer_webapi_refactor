@@ -28,6 +28,6 @@ jobs:
       # Run the script to import issues from CSV
       - name: Import Issues from CSV
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Or use secrets.GH_PAT if you're using a PAT
+            GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           python .github/scripts/import_issues.py
